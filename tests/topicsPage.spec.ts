@@ -42,7 +42,7 @@ test.describe(`topicsPage`,()=>{
 
 
 
-    await page.locator('#subject-courses-section #course-filter >> text=Beginner >> input[type="checkbox"]').check();
+    await page.locator(`.course-filter-sec [data-filter-val='Beginner']`).check();
     await expect(page).toHaveURL('https://www.mygreatlearning.com/aws/free-courses?p=1&level=Beginner');
   
     const Beginner = page.locator('#subject-course-cards .course-info div:nth-child(2)')
@@ -56,13 +56,13 @@ test.describe(`topicsPage`,()=>{
 
   test('for 2-filters check',async ({page})=>{
 
-    await page.locator('#subject-courses-section #course-filter >> text=Beginner >> input[type="checkbox"]').check();
+    await page.locator('.course-filter-sec [data-filter-val="Beginner"]').check();
     await expect(page).toHaveURL('https://www.mygreatlearning.com/aws/free-courses?p=1&level=Beginner');
 
-    await page.locator('#subject-courses-section >> text=Intermediate >> input[type="checkbox"]').check();
+    await page.locator(`.course-filter-sec [data-filter-val='Intermediate']`).check();
     await expect(page).toHaveURL('https://www.mygreatlearning.com/aws/free-courses?p=1&level=Beginner%2CIntermediate');
   
-    await page.locator('#subject-courses-section >> text=30 mins - 1 hour >> input[type="checkbox"]').check();
+    await page.locator(`.course-filter-sec [data-filter-val='extraShort']`).check();
     await expect(page).toHaveURL('https://www.mygreatlearning.com/aws/free-courses?p=1&level=Beginner%2CIntermediate&duration=extraShort');
 
     const Beginner = page.locator('#subject-course-cards .course-info div:nth-child(2)')
@@ -90,13 +90,13 @@ test.describe(`topicsPage`,()=>{
   test(`for 3-filters check`,async ({page})=>{
 
 
-    await page.locator('#subject-courses-section #course-filter >> text=Beginner >> input[type="checkbox"]').check();
+    await page.locator(`.course-filter-sec [data-filter-val='Beginner']`).check();
     await expect(page).toHaveURL('https://www.mygreatlearning.com/aws/free-courses?p=1&level=Beginner');
 
-    // await page.locator('#subject-courses-section >> text=Intermediate >> input[type="checkbox"]').check();
+    // await page.locator(`.course-filter-sec [data-filter-val='Intermediate']`).check();
     // await expect(page).toHaveURL('https://www.mygreatlearning.com/aws/free-courses?p=1&level=Beginner%2CIntermediate');
   
-    await page.locator('#subject-courses-section >> text=30 mins - 1 hour >> input[type="checkbox"]').check();
+    await page.locator(`.course-filter-sec [data-filter-val='extraShort']`).check();
     // await expect(page).toHaveURL('https://www.mygreatlearning.com/aws/free-courses?p=1&level=Beginner%2CIntermediate&duration=extraShort');
 
     await page.locator('#subject-courses-section >> text=AWS Domains Cloud Computing Courses in Hindi >> div').nth(2).click();

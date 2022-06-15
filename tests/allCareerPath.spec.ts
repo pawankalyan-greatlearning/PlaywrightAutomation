@@ -58,7 +58,6 @@ test.describe('it is AllCareer page spec', () => {
         expect(page2Redirect.url()).toContain(`${link2}`)
         await page.goto(visitingPage)
 
-
     })
 
 })
